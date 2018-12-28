@@ -7,7 +7,8 @@
 #    - olhar documentação em https://laravel.com/docs/5.7
 #
 # instalar framework
-#    - composer create-project --prefer-dist laravel/laravel estudos
+# - composer create-project --prefer-dist laravel/laravel estudos "5.3.*"
+#   
 #
 # CRIAR IMAGEM APARTIR DO DOCKER FILE
 # estar dentro do diretório do dockerfile e executar
@@ -15,3 +16,4 @@
 #docker
 # RODAR DOCKER FILE COM APACHE PASSANDO CAMINHO DO PROJETO
 # sudo docker run -ti -p 3333:80 -v /home/jefferson/Documentos/workspace/:/var/www/html laravel/laravel-estudo:1.0
+# se der erro 500, dar chmod 777 -R /estudos/
