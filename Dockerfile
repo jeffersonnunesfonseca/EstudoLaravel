@@ -21,7 +21,15 @@ RUN rm /var/www/html/index.html
 #adiciono extensão do mysql no php.ini
 RUN echo "extension=php_mysqli.dll" >> /etc/php/7.0/apache2/php.ini
 
+RUN echo "<VirtualHost *:80>" >> /etc/apache2/sites-available/000-default.conf
+RUN echo "      ServerName laravel" >> /etc/apache2/sites-available/000-default.conf
+RUN echo "      DocumentRoot /var/www/html/estudos/public" >> /etc/apache2/sites-available/000-default.conf 
+RUN echo "</VirtualHost>" >> /etc/apache2/sites-available/000-default.conf
+
 COPY . /var/www/html/
+
+
+
 
 #porta 80
 EXPOSE 80
