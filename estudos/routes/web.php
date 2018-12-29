@@ -67,6 +67,8 @@ Route::group(['namespace'=>'Site'],function(){
     Route::get('/', 'SiteController@index');
 
     Route::get('/categoria/{id?}', 'SiteController@categoria');
+
+    Route::get('/contato', 'SiteController@contato');
 });
 
 Route::group(['namespace'=>'Painel'],function(){
