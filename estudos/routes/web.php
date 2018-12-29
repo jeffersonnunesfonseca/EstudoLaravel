@@ -12,40 +12,40 @@
 */
 
 //grupo de rotas
-Route::group(['prefix'=>'teste'],function(){
-    Route::get('/teste1', function () {
-        return "aa"; 
-    });
-    Route::get('/teste2', function () {
-        return "bb";
-    });
+// Route::group(['prefix'=>'teste'],function(){
+//     Route::get('/teste1', function () {
+//         return "aa"; 
+//     });
+//     Route::get('/teste2', function () {
+//         return "bb";
+//     });
 
-});
+// });
 
-//rota com parametro opcional
-Route::get('/categoria/{id?}/{nome?}', function ($id=null,$nome=null) {
-    return "id = {$id}, nome = {$nome}";
-});
+// //rota com parametro opcional
+// Route::get('/categoria/{id?}/{nome?}', function ($id=null,$nome=null) {
+//     return "id = {$id}, nome = {$nome}";
+// });
 
-//pega qualquer tipo de requisição
-Route::any('/any', function () {
-    return "ROTA ANY";
-});
+// //pega qualquer tipo de requisição
+// Route::any('/any', function () {
+//     return "ROTA ANY";
+// });
 
-//independente de onde vem o /match, fica flexivel
-Route::match(['get','post'],'/match', function () {
-    return "ROTA MATCH";
-});
+// //independente de onde vem o /match, fica flexivel
+// Route::match(['get','post'],'/match', function () {
+//     return "ROTA MATCH";
+// });
 
-//quando é post
-Route::post('/empresa', function () {
-    return "ROTA POST";
-});
+// //quando é post
+// Route::post('/empresa', function () {
+//     return "ROTA POST";
+// });
 
-//nomeando a rota. deste modo, quando houver alteração no caminho. não será necessário mudar em outra parte do código
-Route::get('/nome/nome1/nome2', function () {
-    return view("welcome");
-})->name('rota.nomeada');
+// //nomeando a rota. deste modo, quando houver alteração no caminho. não será necessário mudar em outra parte do código
+// Route::get('/nome/nome1/nome2', function () {
+//     return view("welcome");
+// })->name('rota.nomeada');
 
 // Route::get('/', function () {
 //     return "aa";
@@ -58,5 +58,21 @@ Route::get('/nome/nome1/nome2', function () {
 // });
 
 
-Route::get('/', 'SiteController@index');
+// Route::get('/', 'Site\SiteController@index');
+
+// Route::get('/categoria/{id?}', 'Site\SiteController@categoria');
+
+//namespace define o namespace de onde esá o arquivo
+Route::group(['namespace'=>'Site'],function(){
+    Route::get('/', 'SiteController@index');
+
+    Route::get('/categoria/{id?}', 'SiteController@categoria');
+});
+
+Route::group(['namespace'=>'Painel'],function(){
+    //utilizando o resource do artisan
+    Route::resource('/painel/produtos', 'ProdutoController');
+
+    Route::get('/cat/{id?}', 'PainelController@categoria');
+});
 ?>
