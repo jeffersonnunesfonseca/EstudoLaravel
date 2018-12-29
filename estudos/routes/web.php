@@ -14,7 +14,7 @@
 //grupo de rotas
 Route::group(['prefix'=>'teste'],function(){
     Route::get('/teste1', function () {
-        return "aa";
+        return "aa"; 
     });
     Route::get('/teste2', function () {
         return "bb";
@@ -53,8 +53,10 @@ Route::get('/nome/nome1/nome2', function () {
 
 
 //pegando rota nomeada
-Route::get('/', function () {
-    return redirect()->route('rota.nomeada');
-});
+// Route::get('/', function () {
+//     return redirect()->route('rota.nomeada');
+// });
 
+
+Route::get('/', 'SiteController@index');
 ?>
