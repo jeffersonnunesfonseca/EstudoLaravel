@@ -9,5 +9,6 @@
 <body>
     <!-- yield, meio de deixar uma view dinamica -->
     @yield('content')
+    @stack('scripts')
 </body>
 </html>
