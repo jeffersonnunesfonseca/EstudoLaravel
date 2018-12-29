@@ -13,7 +13,9 @@ class SiteController extends Controller
         // $this->middleware('auth')->only(['categoria']);
     }
     public function index(){
-        return "hello world";
+        $teste = 1;
+        $teste2 =2;
+        return view('site.teste',compact('teste','teste2'));
     }
 
     public function categoria($id=null){
