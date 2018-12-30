@@ -1,5 +1,5 @@
 <!-- utilizando view ja existente -->
-@extends('site.template.template1')
+@extends('template.template1')
 @section('title')
     teste
 @endsection

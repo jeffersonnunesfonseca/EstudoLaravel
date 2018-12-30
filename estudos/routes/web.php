@@ -73,8 +73,8 @@ Route::group(['namespace'=>'Site'],function(){
 
 Route::group(['namespace'=>'Painel'],function(){
     //utilizando o resource do artisan
-    Route::resource('/painel/produtos', 'ProdutoController');
-
-    Route::get('/cat/{id?}', 'PainelController@categoria');
+    Route::get('/painel/produtos', 'ProdutoController@index');
+    Route::get('/painel/cat/{id?}', 'PainelController@categoria');
+    Route::get('/painel/teste', 'ProdutoController@teste');
 });
 ?>
