@@ -26,6 +26,14 @@ RUN echo "      ServerName laravel" >> /etc/apache2/sites-available/000-default.
 RUN echo "      DocumentRoot /var/www/html/estudos/public" >> /etc/apache2/sites-available/000-default.conf 
 RUN echo "</VirtualHost>" >> /etc/apache2/sites-available/000-default.conf
 
+RUN echo "<Directory /var/www/html/estudos >" >> /etc/apache2/sites-available/000-default.conf
+RUN echo    "Options Indexes FollowSymLinks" >> /etc/apache2/sites-available/000-default.conf
+RUN echo    "AllowOverride All" >> /etc/apache2/sites-available/000-default.conf
+RUN echo    "Require all granted" >> /etc/apache2/sites-available/000-default.conf
+RUN echo  "</Directory>" >> /etc/apache2/sites-available/000-default.conf
+
+# RUN echo  "LoadModule rewrite_module modules/mod_rewrite.so";
+RUN a2enmod rewrite
 COPY . /var/www/html/
 
 ##sasasasaasas
